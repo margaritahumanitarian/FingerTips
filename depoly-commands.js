@@ -13,6 +13,9 @@ const commands = [
   new SlashCommandBuilder()
     .setName("user")
     .setDescription("Replies with user info!"),
+  new SlashCommandBuilder()
+    .setName("m")
+    .setDescription("Is there someone available who can help me"),
 ].map((command) => command.toJSON());
 
 const rest = new REST({ version: "9" }).setToken(token);
