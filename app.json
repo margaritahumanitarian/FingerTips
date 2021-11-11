@@ -1,8 +1,8 @@
 {
-    "name": "FingerTips",
-    "description": "An assistive Technology bot for people who have trouble using their hands.",
-    "repository": "https://github.com/margaritahumanitarian/FingerTips",
-    "logo": "https://cdn.jsdelivr.net/gh/margaritahumanitarian/FingerTips@main/public/FingerTips.png",
-    "keywords": ["node", "Discord", "heroku"],
-    "image": "heroku/nodejs"
-  }
+  "name": "FingerTips",
+  "description": "An assistive Technology bot for people who have trouble using their hands.",
+  "repository": "https://github.com/margaritahumanitarian/FingerTips",
+  "logo": "https://cdn.jsdelivr.net/gh/margaritahumanitarian/FingerTips@main/public/FingerTips.png",
+  "keywords": ["node", "Discord", "heroku"],
+  "image": "heroku/nodejs"
+}
