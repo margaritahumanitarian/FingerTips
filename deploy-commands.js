@@ -17,6 +17,8 @@ const commands = [
     .setName('m')
     .setDescription('Is there someone available who can help me'),
   new SlashCommandBuilder().setName('l').setDescription('Help others'),
+  new SlashCommandBuilder().setName('p').setDescription('Priority list'),
+  new SlashCommandBuilder().setName('r').setDescription('respond to someone'),
 ].map((command) => command.toJSON());
 
 const rest = new REST({ version: '9' }).setToken(process.env.DISCORD_TOKEN);

@@ -31,6 +31,25 @@ client.on('interactionCreate', async (interaction) => {
     await interaction.reply(
       'I am here in the lounge if anyone needs help. @here'
     );
+  } else if (commandName === 'p') {
+    await interaction.reply(
+      'Available priorities:\n1. Critical\n2. High \n3. Medium\n4. Low'
+    );
+
+    // let filter = (msg) => !msg.author.bot;
+    // let options = {
+    //   max: 2,
+    //   time: 15000,
+    // };
+    // let collector = interaction.channel.createMessageCollector(filter, options);
+
+    // // The 'collect' event will fire whenever the collector receives input
+    // collector.on('collect', (m) => {
+    //   console.log(`Collected ${m.content}`);
+    // });(
+    interaction(
+      'Hi! received your message and is available to talk now. Click on the Lounge voice channel on the left to speak now.'
+    );
   }
 });
 
