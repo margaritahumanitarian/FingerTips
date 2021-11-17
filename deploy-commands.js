@@ -16,11 +16,13 @@ const commands = [
   new SlashCommandBuilder()
     .setName('m')
     .setDescription('Is there someone available who can help me'),
+  new SlashCommandBuilder().setName('l').setDescription('Help others'),
 ].map((command) => command.toJSON());
 
 const rest = new REST({ version: '9' }).setToken(process.env.DISCORD_TOKEN);
 
 rest
+
   .put(
     Routes.applicationGuildCommands(
       process.env.DISCORD_CLIENT_ID,

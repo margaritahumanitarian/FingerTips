@@ -27,6 +27,10 @@ client.on('interactionCreate', async (interaction) => {
     await interaction.reply(
       'Hi is anyone around to help me for 30 minutes?' + '@here'
     );
+  } else if (commandName === 'l') {
+    await interaction.reply(
+      'I am here in the lounge if anyone needs help. @here'
+    );
   }
 });
 
