@@ -26,8 +26,9 @@ client.on('interactionCreate', async (interaction) => {
   } else if (commandName === 'user') {
     await interaction.reply('User info.');
   } else if (commandName === 'm') {
+    const minutes = interaction.options.getNumber('minutes') || 30;
     await interaction.reply(
-      'Hi is anyone around to help me for 30 minutes?' + '@here'
+      `Hi is anyone around to help me for ${minutes} minutes?` + '@here'
     );
   } else if (commandName === 'l') {
     await interaction.reply(
