@@ -34,22 +34,38 @@ client.on('interactionCreate', async (interaction) => {
       'I am here in the lounge if anyone needs help. @here'
     );
   } else if (commandName === 'p') {
-    // Create a message collector
-    // const filter = (m) => {
-    //   return m.content.includes('discord');
-    // };
-    // const collector = interaction.channel.createMessageCollector({
-    //   filter,
-    //   max: 1,
-    //   time: 5000,
-    // });
-    // collector.on('collect', (m) => console.log(`Collected ${m.content}`));
-    // collector.on('end', (collected) =>
-    //   console.log(`Collected ${collected.size} items`)
-    // );
-    // await interaction.reply(
-    //   'Available priorities:\n1. Critical\n2. High \n3. Medium\n4. Low'
-    // );
+    interaction.channel.send(
+      'Available priorities:\n1. Critical\n2. High \n3. Medium\n4. Low'
+    );
+    const filter = (interaction) => {
+      return !interaction.member.user.bot;
+    };
+    const collector = interaction.channel.createMessageCollector({
+      filter,
+      max: 5,
+      time: 5000,
+    });
+    collector.on('collect', (m) => {
+      if (m.content === '1') {
+        return interaction.channel.send(`Priority is **Critical** @here`);
+      }
+      if (m.content === '2') {
+        return interaction.channel.send(`Priority is **high** @here`);
+      }
+      if (m.content === '3') {
+        return interaction.channel.send(`Priority is **Medium** @here`);
+      }
+      if (m.content === '4') {
+        return interaction.channel.send(`Priority is **Low** @here`);
+      } else {
+        return interaction.channel.send(`invalid option selected :C`);
+      }
+    });
+    collector.on('end', (collected) =>
+      console.log(`Collected ${collected.size} items`)
+    );
+
+    await interaction.reply(`This list of Priorities is as follows:`);
   } else if (commandName === 'r') {
     await interaction.reply(
       `Hi! <@${interaction.user.id}> received your message and is available to talk now. Click on the Lounge voice channel on the left to speak now.`
