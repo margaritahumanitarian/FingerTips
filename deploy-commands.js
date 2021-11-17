@@ -15,7 +15,10 @@ const commands = [
     .setDescription('Replies with user info!'),
   new SlashCommandBuilder()
     .setName('m')
-    .setDescription('Is there someone available who can help me'),
+    .setDescription('Is there someone available who can help me')
+    .addNumberOption((option) =>
+      option.setName('minutes').setDescription('Amount of time we need.')
+    ),
   new SlashCommandBuilder().setName('l').setDescription('Help others'),
   new SlashCommandBuilder().setName('p').setDescription('Priority list'),
   new SlashCommandBuilder().setName('r').setDescription('respond to someone'),
