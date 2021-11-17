@@ -37,9 +37,11 @@ client.on('interactionCreate', async (interaction) => {
     interaction.channel.send(
       'Available priorities:\n1. Critical\n2. High \n3. Medium\n4. Low'
     );
+    //if the interaction happening is with bot then the data wouldnt be collected
     const filter = (interaction) => {
       return !interaction.member.user.bot;
     };
+    //Create a new collector in the channel where /p is used
     const collector = interaction.channel.createMessageCollector({
       filter,
       max: 5,
