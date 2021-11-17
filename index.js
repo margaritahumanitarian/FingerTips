@@ -3,7 +3,9 @@ const { Client, Intents } = require('discord.js');
 require('dotenv').config();
 
 // Create a new client instance
-const client = new Client({ intents: [Intents.FLAGS.GUILDS] });
+const client = new Client({
+  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+});
 
 // When the client is ready, run this code (only once)
 client.once('ready', () => {
@@ -32,27 +34,28 @@ client.on('interactionCreate', async (interaction) => {
       'I am here in the lounge if anyone needs help. @here'
     );
   } else if (commandName === 'p') {
-    await interaction.reply(
-      'Available priorities:\n1. Critical\n2. High \n3. Medium\n4. Low'
-    );
-  }
-  // let filter = (msg) => !msg.author.bot;
-  // let options = {
-  //   max: 2,
-  //   time: 15000,
-  // };
-  // let collector = interaction.channel.createMessageCollector(filter, options);
-
-  // // The 'collect' event will fire whenever the collector receives input
-  // collector.on('collect', (m) => {
-  //   console.log(`Collected ${m.content}`);
-  // });(
-  else if (commandName === 'r') {
+    // Create a message collector
+    // const filter = (m) => {
+    //   return m.content.includes('discord');
+    // };
+    // const collector = interaction.channel.createMessageCollector({
+    //   filter,
+    //   max: 1,
+    //   time: 5000,
+    // });
+    // collector.on('collect', (m) => console.log(`Collected ${m.content}`));
+    // collector.on('end', (collected) =>
+    //   console.log(`Collected ${collected.size} items`)
+    // );
+    // await interaction.reply(
+    //   'Available priorities:\n1. Critical\n2. High \n3. Medium\n4. Low'
+    // );
+  } else if (commandName === 'r') {
     await interaction.reply(
       `Hi! <@${interaction.user.id}> received your message and is available to talk now. Click on the Lounge voice channel on the left to speak now.`
     );
 
-    //interaction.user.voice.setChannel(process.env.LOUNGE_VC_ID);
+    // interaction.user.voice.setChannel(process.env.LOUNGE_VC_ID);
   }
 });
 
