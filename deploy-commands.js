@@ -22,6 +22,10 @@ const commands = [
   new SlashCommandBuilder().setName('l').setDescription('Help others'),
   new SlashCommandBuilder().setName('p').setDescription('Priority list'),
   new SlashCommandBuilder().setName('r').setDescription('respond to someone'),
+  new SlashCommandBuilder().setName('mc').setDescription('Critical Priority'),
+  new SlashCommandBuilder().setName('mh').setDescription('High Priority'),
+  new SlashCommandBuilder().setName('mm').setDescription('Medium Priority'),
+  new SlashCommandBuilder().setName('ml').setDescription('Low Priority'),
 ].map((command) => command.toJSON());
 
 const rest = new REST({ version: '9' }).setToken(process.env.DISCORD_TOKEN);

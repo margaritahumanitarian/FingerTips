@@ -1,5 +1,5 @@
 // Require the necessary discord.js classes
-const { Client, Intents } = require('discord.js');
+const { Client, Intents, MessageEmbed } = require('discord.js');
 require('dotenv').config();
 
 // Create a new client instance
@@ -75,6 +75,27 @@ client.on('interactionCreate', async (interaction) => {
     );
 
     // interaction.user.voice.setChannel(process.env.LOUNGE_VC_ID);
+  }
+
+  // Command: "/mc, /mh, /mm, /ml"
+  else if (commandName[0] === 'm') {
+    const newEmbed = new MessageEmbed()
+    switch (commandName[1]) {
+      case "c":
+        newEmbed.setColor('#ff3030').setTitle(`Priority is **Critical**`)
+        break
+      case "h":
+        newEmbed.setColor('#ff7b1c').setTitle(`Priority is **High**`)
+        break
+      case "m":
+        newEmbed.setColor('#1c7eff').setTitle(`Priority is **Medium**`)
+        break
+      case "l":
+        newEmbed.setColor('#55c278').setTitle(`Priority is **Low**`)
+        break
+    }
+    await interaction.channel.send(`Hi is anyone around to help me for 30min minutes? @here`)
+    await interaction.reply({ embeds: [newEmbed] });
   }
 });
 
