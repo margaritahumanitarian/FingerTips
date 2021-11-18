@@ -11,7 +11,7 @@ An assistive technology bot for people who have trouble using their hands, or fo
 5. Name it as FingerTips-<your username>
 6. Read the official Discord js [guide](https://discordjs.guide/#before-you-begin) and follow the steps until **Adding your bot to servers**.
 7. Create a .env file and copy paste all contents of .env.example
-8. Add your bot token and clientID in respective place given, for example
+8. Add your bot guildId ,token and clientID in respective place given, for example
 
 ```
 
@@ -20,6 +20,8 @@ An assistive technology bot for people who have trouble using their hands, or fo
   DISCORD_CLIENT_ID="Your bot's Client Id"
 
 ```
+
+(In the above example we added DISCORD_GUILD_ID as the GUILD_ID of our FingerTips Discord)
 
 9. Run `npm install`
 10. Run `node deploy-commands.js` if you have made any changes to the deploy-commands.js file.
