@@ -12,6 +12,28 @@ client.once('ready', () => {
   console.log('Ready!');
 });
 
+client.on('messageCreate', (message) => {
+  // creating a regular expression pattern to match word audrey case-insensitive
+  const pattern = /(audrey)/i;
+  // checking if message not from bot
+  if (!message.author.bot) {
+    // 2 check
+    // 1 - if audrey has mentioned using @audreyfeldroy
+    // 2 - audrey used in message
+    if (
+      message.mentions.users.find(
+        (user) => user.username === 'audreyfeldroy'
+      ) ||
+      message.content.match(pattern)
+    ) {
+      // <@501511414654042112> is refering to @audreyfeldroy
+      message.reply(
+        `${message.author}, Thank you for your message. <@501511414654042112> is unable to respond via typing. If you see her in the General voice channel feel free to join and communicate, or if there is no one in the voice channel then please wait until they come online.`
+      );
+    }
+  }
+});
+
 client.on('interactionCreate', async (interaction) => {
   if (!interaction.isCommand()) return;
 
