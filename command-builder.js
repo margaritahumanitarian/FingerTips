@@ -24,6 +24,7 @@ const commands = [
     new SlashCommandBuilder().setName('mm').setDescription('Medium Priority'),
     new SlashCommandBuilder().setName('ml').setDescription('Low Priority'),
     new SlashCommandBuilder().setName('help').setDescription('List of all the commands'),
+    new SlashCommandBuilder().setName('h').setDescription('List of all the commands'),
 ].map((command) => command.toJSON());
 
 module.exports = {

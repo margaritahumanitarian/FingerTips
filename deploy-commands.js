@@ -1,7 +1,7 @@
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 require('dotenv').config();
-const CommandsBuilder = require('./commandBuilder')
+const CommandsBuilder = require('./command-builder')
 
 const rest = new REST({ version: '9' }).setToken(process.env.DISCORD_TOKEN);
 

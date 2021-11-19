@@ -1,6 +1,6 @@
 // Require the necessary discord.js classes
 const { Client, Intents, MessageEmbed } = require('discord.js');
-const CommandsBuilder = require('./commandBuilder');
+const CommandsBuilder = require('./command-builder');
 require('dotenv').config();
 
 // Create a new client instance
@@ -119,8 +119,8 @@ client.on('interactionCreate', async (interaction) => {
     }
     await interaction.channel.send(`Hi is anyone around to help me for 30min minutes? @here`)
     await interaction.reply({ embeds: [newEmbed] });
-  } else if (commandName === 'help') {
-    const newEmbed = new MessageEmbed()
+  } else if (commandName === 'help' || commandName === 'h') {
+    const helpEmbed = new MessageEmbed()
       .setColor("#3c7168")
       .setAuthor("FingerTips Plugins Commands", client.user.displayAvatarURL())
       .addFields(
@@ -132,7 +132,7 @@ client.on('interactionCreate', async (interaction) => {
           }
         })
       )
-    await interaction.reply({ embeds: [newEmbed] });
+    await interaction.reply({ embeds: [helpEmbed] });
   }
 });
 
