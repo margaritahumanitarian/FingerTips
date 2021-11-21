@@ -1,5 +1,6 @@
 // Require the necessary discord.js classes
 const { Client, Intents, MessageEmbed } = require('discord.js');
+const CommandsBuilder = require('./command-builder');
 require('dotenv').config();
 
 // Create a new client instance
@@ -10,6 +11,9 @@ const client = new Client({
 // When the client is ready, run this code (only once)
 client.once('ready', () => {
   console.log('Ready!');
+  client.user.setActivity("/help", {
+    type: "LISTENING"
+  });
 });
 
 client.on('messageCreate', (message) => {
@@ -97,10 +101,7 @@ client.on('interactionCreate', async (interaction) => {
     );
 
     // interaction.user.voice.setChannel(process.env.LOUNGE_VC_ID);
-  }
-
-  // Command: "/mc, /mh, /mm, /ml"
-  else if (commandName[0] === 'm') {
+  } else if (commandName[0] === 'm') {
     const newEmbed = new MessageEmbed()
     switch (commandName[1]) {
       case "c":
@@ -118,6 +119,20 @@ client.on('interactionCreate', async (interaction) => {
     }
     await interaction.channel.send(`Hi is anyone around to help me for 30min minutes? @here`)
     await interaction.reply({ embeds: [newEmbed] });
+  } else if (commandName === 'help' || commandName === 'h') {
+    const helpEmbed = new MessageEmbed()
+      .setColor("#3c7168")
+      .setAuthor("FingerTips Plugins Commands", client.user.displayAvatarURL())
+      .addFields(
+        CommandsBuilder.getAllCommands().map(cmd => {
+          return {
+            name: `\`/${cmd.name}\``,
+            value: cmd.description,
+            inline: true
+          }
+        })
+      )
+    await interaction.reply({ embeds: [helpEmbed] });
   }
 });
 
