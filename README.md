@@ -2,7 +2,13 @@
 
 An assistive technology bot for people who have trouble using their hands, or for those who don't have hands.
 
-## Development Instructions
+## How to run the bot
+
+`npm run start`
+
+This loads the commands onto discord and starts the bot client running.
+
+## Installation Instructions
 
 1. Join our FingerTips [Discord](https://discord.gg/vCKF7Urty2), where we do testing.
 2. Fork and clone this repo.
@@ -28,3 +34,4 @@ Danny's Note: This article really helped, it cover many of the steps above: http
 9. Run `npm install`
 10. Run `node deploy-commands.js` if you have made any changes to the deploy-commands.js file.
 11. Once you got the clientId and token for your bot you can run the bot using `node index.js`
+12. Protip: Use `npm run start`
