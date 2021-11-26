@@ -58,7 +58,7 @@ client.on('interactionCreate', async (interaction) => {
     );
   } else if (commandName === 'l') {
     await interaction.reply(
-      'I am here in the lounge if anyone needs help. @here'
+      'Hey everyone, @audreyfeldroy is available in the General voice channel if anyone needs help. @here'
     );
   } else if (commandName === 'p') {
     interaction.channel.send(
