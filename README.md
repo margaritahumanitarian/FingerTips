@@ -21,12 +21,11 @@ This loads the commands onto discord and starts the bot client running.
 
 Danny's Note: This article really helped, it cover many of the steps above: https://www.writebots.com/discord-bot-token/
 
-```
-
-  DISCORD_GUILD_ID="906936820724555776"
-  DISCORD_TOKEN="Your bot's token"
-  DISCORD_CLIENT_ID="Your bot's Client Id"
-
+```python
+# This is specific to the FingerTips discord server
+DISCORD_GUILD_ID="906936820724555776"
+DISCORD_TOKEN="Your bot's OAuth token"
+DISCORD_CLIENT_ID="Your bot's Client Id"
 ```
 
 (In the above example we added DISCORD_GUILD_ID as the GUILD_ID of our FingerTips Discord)
