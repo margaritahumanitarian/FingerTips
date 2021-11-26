@@ -6,12 +6,14 @@ An assistive technology bot for people who have trouble using their hands, or fo
 
 1. Join our FingerTips [Discord](https://discord.gg/vCKF7Urty2), where we do testing.
 2. Fork and clone this repo.
-3. Create a test Discord bot at [here](https://discord.com/developers/applications).
+3. Create a test Discord bot [here](https://discord.com/developers/applications).
 4. Ping one of the Discord admins to invite your bot in the server for testing.
-5. Name it as FingerTips-<your username>
+5. Name it as FingerTips - **your username**
 6. Read the official Discord js [guide](https://discordjs.guide/#before-you-begin) and follow the steps until **Adding your bot to servers**.
 7. Create a .env file and copy paste all contents of .env.example
 8. Add your bot guildId ,token and clientID in respective place given, for example
+
+Danny's Note: This article really helped, it cover many of the steps above: https://www.writebots.com/discord-bot-token/
 
 ```
 
