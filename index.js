@@ -3,6 +3,7 @@ const { Client, Intents, MessageEmbed } = require('discord.js');
 const CommandsBuilder = require('./command-builder');
 require('dotenv').config();
 
+const LINK = process.env.INVITE_LINK;
 // Create a new client instance
 const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
@@ -11,8 +12,8 @@ const client = new Client({
 // When the client is ready, run this code (only once)
 client.once('ready', () => {
   console.log('Ready!');
-  client.user.setActivity("/help", {
-    type: "LISTENING"
+  client.user.setActivity('/help', {
+    type: 'LISTENING',
   });
 });
 
@@ -54,11 +55,12 @@ client.on('interactionCreate', async (interaction) => {
   } else if (commandName === 'm') {
     const minutes = interaction.options.getNumber('minutes') || 30;
     await interaction.reply(
-      `Hi, is anyone around to help @audreyfeldroy for ${minutes} minutes?` + '@here'
+      `Hi, is anyone around to help <@${interaction.user.id}> for ${minutes} minutes?` +
+        '@here'
     );
   } else if (commandName === 'l') {
     await interaction.reply(
-      'Hey everyone, @audreyfeldroy is available in the General voice channel if anyone needs help. @here'
+      `Hey everyone, <@${interaction.user.id}> is available at General voice channel. If anyone needs help @here, \nJoin ${LINK}`
     );
   } else if (commandName === 'p') {
     interaction.channel.send(
@@ -102,36 +104,38 @@ client.on('interactionCreate', async (interaction) => {
 
     // interaction.user.voice.setChannel(process.env.LOUNGE_VC_ID);
   } else if (commandName[0] === 'm') {
-    const newEmbed = new MessageEmbed()
+    const newEmbed = new MessageEmbed();
     switch (commandName[1]) {
-      case "c":
-        newEmbed.setColor('#ff3030').setTitle(`Priority is **Critical**`)
-        break
-      case "h":
-        newEmbed.setColor('#ff7b1c').setTitle(`Priority is **High**`)
-        break
-      case "m":
-        newEmbed.setColor('#1c7eff').setTitle(`Priority is **Medium**`)
-        break
-      case "l":
-        newEmbed.setColor('#55c278').setTitle(`Priority is **Low**`)
-        break
+      case 'c':
+        newEmbed.setColor('#ff3030').setTitle(`Priority is **Critical**`);
+        break;
+      case 'h':
+        newEmbed.setColor('#ff7b1c').setTitle(`Priority is **High**`);
+        break;
+      case 'm':
+        newEmbed.setColor('#1c7eff').setTitle(`Priority is **Medium**`);
+        break;
+      case 'l':
+        newEmbed.setColor('#55c278').setTitle(`Priority is **Low**`);
+        break;
     }
-    await interaction.channel.send(`Hi is anyone around to help me for 30min minutes? @here`)
+    await interaction.channel.send(
+      `Hi is anyone around to help me for 30min minutes? @here`
+    );
     await interaction.reply({ embeds: [newEmbed] });
   } else if (commandName === 'help' || commandName === 'h') {
     const helpEmbed = new MessageEmbed()
-      .setColor("#3c7168")
-      .setAuthor("FingerTips Plugins Commands", client.user.displayAvatarURL())
+      .setColor('#3c7168')
+      .setAuthor('FingerTips Plugins Commands', client.user.displayAvatarURL())
       .addFields(
-        CommandsBuilder.getAllCommands().map(cmd => {
+        CommandsBuilder.getAllCommands().map((cmd) => {
           return {
             name: `\`/${cmd.name}\``,
             value: cmd.description,
-            inline: true
-          }
+            inline: true,
+          };
         })
-      )
+      );
     await interaction.reply({ embeds: [helpEmbed] });
   }
 });
