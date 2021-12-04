@@ -34,3 +34,33 @@ Note: This helpful article covers many of the steps above: https://www.writebots
 10. Run `node deploy-commands.js` if you have made any changes to the deploy-commands.js file.
 11. Once you got the clientId and token for your bot you can run the bot using `node index.js`
 12. Pro tip: Use `npm run start` as a shortcut to run `node deploy-commands.js && node index.js`
+
+## Troubleshooting
+
+```
+FingerTips on  main [!] is 📦 v1.0.0 via ⬢ v14.17.0 
+➜ npm run start                            
+
+> fingertips@1.0.0 start 
+> node deploy-commands.js && node index.js
+
+internal/modules/cjs/loader.js:888
+  throw err;
+  ^
+
+Error: Cannot find module 'timers/promises'
+```
+
+Make sure you are using Node 16 or greater.
+
+```bash
+nvm use 16
+```
+
+## Help Wanted 
+
+To volunteer, join the FingerTips [Discord](https://discord.gg/vCKF7Urty2) and ask for help getting started as a new volunteer.
+
+
+
+
